@@ -5,10 +5,13 @@ public class MainGame : MonoBehaviour {
 
 	public GameObject linePrefab; 
 
+
+	private GameObject line;
+
 	// Use this for initialization
 	void Start () {
 
-
+		line = Instantiate (linePrefab, new Vector3 (8, 0, 0), linePrefab.transform.rotation) as GameObject;
 	
 	}
 	
@@ -18,15 +21,25 @@ public class MainGame : MonoBehaviour {
 		CheckMouseInput();
 
 		CheckTouchInput();
+
+		if (line != null) 
+		{
+			//Debug.Log (Time.deltaTime);
+
+			line.transform.Translate(Vector3.left * 1 * Time.deltaTime);
+
+		}
 	}
 
 	void CheckMouseInput()
 	{
 		if (Input.GetMouseButtonDown (0)) 
 		{
-			Debug.Log ("touching...");
+//			Debug.Log (line.GetComponent<Transform>().position.x);
 
-			Instantiate (linePrefab, new Vector3(0, 0, 0), linePrefab.transform.rotation);
+			Destroy (line);
+			line = Instantiate (linePrefab, new Vector3 (8, 0, 0), linePrefab.transform.rotation) as GameObject;
+
 		}
 	}
 
