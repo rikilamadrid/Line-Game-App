@@ -13,13 +13,16 @@ public class MainGame : MonoBehaviour {
 	private int speed = 1;
 
 
+
+
+
 	// Use this for initialization
 	void Start () {
+
 
 		line = Instantiate (linePrefab, new Vector3 (4, 0, 0), linePrefab.transform.rotation) as GameObject;
 		lifes = 3;
 		Debug.Log (lifesObject.text);
-
 
 	
 	}
@@ -38,7 +41,7 @@ public class MainGame : MonoBehaviour {
 			//Debug.Log (Time.deltaTime);
 
 			line.transform.Translate(Vector3.left * speed * Time.deltaTime);
-
+		
 
 		}
 	}
@@ -69,6 +72,7 @@ public class MainGame : MonoBehaviour {
 
 				}
 			}
+
 		}
 	}
 
